@@ -1944,7 +1944,7 @@ body>header::after{pointer-events:none}
       const allExitSigns = document.querySelectorAll('.exit-sign-box');
       const allAisleLights = document.querySelectorAll('.aisle-light');
       
-      const isExitActive = state.evacAlert || state.emerDescent;
+      const isExitActive = state.evacAlert || state.emerDescent || state.preparedEmergency || state.pilotIncapacitated || (state.interphone === 'EMER') || (state.b787CallType === 'PILOT_ALERT');
       allExitSigns.forEach(el => {
         if (isExitActive) el.classList.add('exit-sign-evac');
         else el.classList.remove('exit-sign-evac');
@@ -2834,6 +2834,19 @@ body>header::after{pointer-events:none}
           <div id="economyCabinRows1" class="flex flex-col gap-1"></div>
         </div>
 
+        <div id="a321EcoZone2" class="a321-duty-zone w-full max-w-md mb-2 bg-slate-900/60 border border-slate-800 rounded-xl p-2 transition-all">
+          <div class="text-[9px] font-bold text-sky-400 mb-1 font-mono flex justify-between border-b border-slate-800 pb-1">
+            <span>ECONOMY MID - ROWS 19-28</span>
+            <span class="px-1.5 py-0.2 rounded bg-pink-950 text-pink-300 border border-pink-700 font-mono text-[8px]">CA3 PHỤ TRÁCH</span>
+          </div>
+          <div class="w-full flex items-center justify-center my-1">
+            <span class="demo-badge px-2 py-0.5 rounded-full bg-red-950/80 text-red-300 border border-red-600 text-[8px] font-mono font-bold flex items-center gap-1 shadow animate-pulse">
+              <span class="w-1.5 h-1.5 rounded-full bg-red-500"></span> VỊ TRÍ BIỂU DIỄN AN TOÀN SỐ 3 (CA3 - HÀNG 28)
+            </span>
+          </div>
+          <div id="economyCabinRows2" class="flex flex-col gap-1"></div>
+        </div>
+
         <div id="a321Door3Zone" class="a321-duty-zone w-full max-w-md border-y border-red-900/60 py-1.5 my-1 px-2 bg-red-950/20 rounded transition-all">
           <div class="flex items-center justify-between mb-1.5">
             <div class="exit-sign-box" id="exit-A321-3L"><i class="fa-solid fa-person-running"></i> EXIT 3L</div>
@@ -2848,19 +2861,6 @@ body>header::after{pointer-events:none}
               <div class="exit-sign-box" id="exit-A321-3R">EXIT 3R <i class="fa-solid fa-person-running"></i></div>
             </div>
           </div>
-        </div>
-
-        <div id="a321EcoZone2" class="a321-duty-zone w-full max-w-md mb-2 bg-slate-900/60 border border-slate-800 rounded-xl p-2 transition-all">
-          <div class="text-[9px] font-bold text-sky-400 mb-1 font-mono flex justify-between border-b border-slate-800 pb-1">
-            <span>ECONOMY MID - ROWS 19-28</span>
-            <span class="px-1.5 py-0.2 rounded bg-pink-950 text-pink-300 border border-pink-700 font-mono text-[8px]">CA3 PHỤ TRÁCH</span>
-          </div>
-          <div class="w-full flex items-center justify-center my-1">
-            <span class="demo-badge px-2 py-0.5 rounded-full bg-red-950/80 text-red-300 border border-red-600 text-[8px] font-mono font-bold flex items-center gap-1 shadow animate-pulse">
-              <span class="w-1.5 h-1.5 rounded-full bg-red-500"></span> VỊ TRÍ BIỂU DIỄN AN TOÀN SỐ 3 (CA3 - HÀNG 28)
-            </span>
-          </div>
-          <div id="economyCabinRows2" class="flex flex-col gap-1"></div>
         </div>
 
         <div id="a321EcoZone3" class="a321-duty-zone w-full max-w-md mb-2 bg-slate-900/60 border border-slate-800 rounded-xl p-2 transition-all">
@@ -4262,6 +4262,81 @@ body>header::after{pointer-events:none}
   }
 })();
 </script>
+
+
+<style id="premium-cids-fixed-topbar-v4">
+/* Keep the complete status bar visible during all page scrolling */
+html, body {
+  overflow-x: clip !important;
+}
+body > header {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 2147483000 !important;
+  width: 100% !important;
+  max-width: 1600px !important;
+  margin: 0 auto !important;
+  transform: none !important;
+  isolation: isolate !important;
+  box-sizing: border-box !important;
+}
+/* The script below reserves the exact height of the fixed bar. */
+body {
+  padding-top: var(--cids-fixed-header-space, 112px) !important;
+}
+@media (max-width: 650px) {
+  body {
+    padding-top: var(--cids-fixed-header-space, 150px) !important;
+  }
+}
+</style>
+<script id="premium-cids-fixed-topbar-space-v4">
+(function () {
+  function installFixedTopbar() {
+    var header = document.querySelector('body > header');
+    if (!header) return;
+    function measure() {
+      var h = Math.ceil(header.getBoundingClientRect().height || header.offsetHeight || 0);
+      document.documentElement.style.setProperty('--cids-fixed-header-space', (h + 12) + 'px');
+    }
+    measure();
+    if (window.ResizeObserver) {
+      var observer = new ResizeObserver(measure);
+      observer.observe(header);
+    }
+    window.addEventListener('resize', measure, { passive: true });
+    window.addEventListener('orientationchange', function () {
+      requestAnimationFrame(measure);
+      setTimeout(measure, 250);
+    }, { passive: true });
+    window.addEventListener('load', measure, { once: true });
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(measure);
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', installFixedTopbar, { once: true });
+  } else {
+    installFixedTopbar();
+  }
+})();
+</script>
+
+
+<style id="a321-exit-sign-steady-green-v5">
+#fuselageScrollContainer .exit-sign-box.exit-sign-evac {
+  background: #079b68 !important;
+  background-image: linear-gradient(180deg, #18c98b, #08784f) !important;
+  color: #ffffff !important;
+  border: 1px solid #65f0b5 !important;
+  box-shadow: 0 0 8px #10b981, 0 0 18px #059669, inset 0 1px 2px #ffffff99 !important;
+  animation: none !important;
+  opacity: 1 !important;
+  filter: none !important;
+}
+</style>
 
 </body>
 </html>
