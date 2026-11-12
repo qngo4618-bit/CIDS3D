@@ -1223,6 +1223,51 @@ body>header::after{pointer-events:none}
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col items-center p-2 sm:p-4 select-none">
 
+<section id="cidsWelcome" role="dialog" aria-modal="true" aria-labelledby="cidsWelcomeTitle">
+  <div class="welcome-grid"></div>
+  <div class="welcome-orbit orbit-a"></div><div class="welcome-orbit orbit-b"></div>
+  <div class="welcome-shell">
+    <div class="welcome-topline"><span class="live-dot"></span> CABIN SYSTEMS · IMMERSIVE TRAINING ENVIRONMENT</div>
+    <div class="welcome-brand">CIDS<span> / </span>3D</div>
+    <p class="welcome-kicker">CABIN INTERCOMMUNICATION DATA SYSTEM</p>
+    <div class="welcome-aircraft" aria-label="Mô hình máy bay 3D minh họa">
+      <div class="aircraft-glow"></div>
+      <svg viewBox="0 0 760 300" role="img" aria-hidden="true">
+        <defs>
+          <linearGradient id="welcomeFuselage" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffffff"/><stop offset=".32" stop-color="#b9e9f8"/><stop offset=".62" stop-color="#548ba8"/><stop offset="1" stop-color="#173b55"/></linearGradient>
+          <linearGradient id="welcomeWing" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#dff8ff"/><stop offset=".45" stop-color="#6b9fb8"/><stop offset="1" stop-color="#183c57"/></linearGradient>
+          <linearGradient id="welcomeGlass"><stop stop-color="#163b55"/><stop offset=".5" stop-color="#55b5d3"/><stop offset="1" stop-color="#0b2034"/></linearGradient>
+          <filter id="welcomeShadow"><feGaussianBlur stdDeviation="9"/></filter>
+        </defs>
+        <ellipse cx="385" cy="235" rx="270" ry="22" fill="#39c9ef" opacity=".2" filter="url(#welcomeShadow)"/>
+        <g transform="translate(15 8) rotate(-7 380 150)">
+          <path d="M72 151 Q83 132 119 127 L535 111 Q645 108 704 142 Q722 153 704 164 Q645 198 535 194 L119 177 Q83 173 72 151Z" fill="url(#welcomeFuselage)" stroke="#d7f6ff" stroke-width="3"/>
+          <path d="M280 132 L425 26 Q444 16 467 22 L402 139Z" fill="url(#welcomeWing)" stroke="#bdefff" stroke-width="2"/>
+          <path d="M278 174 L425 270 Q445 279 466 270 L402 166Z" fill="#315f7c" stroke="#8cc9df" stroke-width="2"/>
+          <path d="M116 131 L177 80 L205 82 L183 135Z" fill="url(#welcomeWing)" stroke="#c7efff" stroke-width="2"/>
+          <path d="M116 173 L177 224 L205 222 L183 169Z" fill="#315f7c" stroke="#8cc9df" stroke-width="2"/>
+          <path d="M95 145 Q115 140 145 141 L652 143 Q681 145 701 153 Q676 161 652 162 L145 164 Q115 164 95 157Z" fill="#e9fbff" opacity=".34"/>
+          <path d="M681 143 Q700 143 710 151 Q700 160 681 160Z" fill="url(#welcomeGlass)"/>
+          <path d="M207 140 L595 139" stroke="#fff" stroke-width="2" opacity=".55"/>
+          <g fill="#22506c" opacity=".8"><circle cx="237" cy="151" r="3"/><circle cx="258" cy="151" r="3"/><circle cx="279" cy="151" r="3"/><circle cx="300" cy="151" r="3"/><circle cx="321" cy="151" r="3"/><circle cx="342" cy="151" r="3"/><circle cx="363" cy="151" r="3"/><circle cx="384" cy="151" r="3"/><circle cx="405" cy="151" r="3"/><circle cx="426" cy="151" r="3"/><circle cx="447" cy="151" r="3"/><circle cx="468" cy="151" r="3"/><circle cx="489" cy="151" r="3"/><circle cx="510" cy="151" r="3"/></g>
+          <path d="M470 166 L506 196 Q512 204 501 206 L472 181Z" fill="#163a53"/>
+          <path d="M470 136 L506 106 Q512 98 501 96 L472 121Z" fill="#7eb2c9"/>
+        </g>
+      </svg>
+      <div class="aircraft-caption">AIRBUS A321 <i></i> A350-900 <i></i> BOEING 787-9</div>
+    </div>
+    <div class="welcome-rule"></div>
+    <h1 id="cidsWelcomeTitle">HỆ THỐNG MÔ PHỎNG CIDS</h1>
+    <p class="welcome-description">Không gian huấn luyện tương tác mô phỏng hệ thống điều khiển và quản lý cabin. Khám phá sơ đồ ghế, tín hiệu gọi, chiếu sáng, cửa thoát hiểm và các tình huống vận hành.</p>
+    <div class="welcome-features">
+      <div><b>01</b><span>Cabin systems</span></div><div><b>02</b><span>Interactive panels</span></div><div><b>03</b><span>3D visualization</span></div>
+    </div>
+    <button id="cidsStartButton" type="button"><span>▶</span> BẮT ĐẦU TRẢI NGHIỆM <small>ENTER SIMULATOR</small></button>
+    <div class="welcome-foot"><span>TRAINING SIMULATOR · VIRTUAL ENVIRONMENT</span><span>VERSION 3D</span></div>
+  </div>
+</section>
+
+
 <section id="immersiveFlightDeck" aria-label="Aviation CIDS training simulator"
  style="width:100%;max-width:1500px;margin:0 auto 14px;padding:15px 20px;border:1px solid #315c76;border-radius:18px;
  background:linear-gradient(110deg,#12334b 0%,#091b2b 58%,#102d43 100%);box-shadow:0 18px 38px #0008,inset 0 1px #d6f5ff24;
@@ -1299,8 +1344,8 @@ body>header::after{pointer-events:none}
       <button id="btnViewSigns" onclick="openEmergencyPopup()" class="hidden bg-amber-600 hover:bg-amber-500 text-black text-[10px] font-bold px-2 py-1.5 rounded border border-amber-400 shadow animate-pulse">
         <i class="fa-solid fa-triangle-exclamation mr-1"></i> XEM DẤU HIỆU
       </button>
-      <button onclick="systemReset()" class="bg-red-600 hover:bg-red-500 text-white text-[11px] font-bold px-3 py-1.5 rounded border border-red-400 shadow active:translate-y-0.5">
-        <i class="fa-solid fa-rotate-left mr-1"></i> RESET CIDS
+      <button id="btnCidsQuickReset" type="button" onclick="systemReset()" aria-label="Reset CIDS" title="RESET CIDS" class="bg-red-600 hover:bg-red-500 text-white shadow active:translate-y-0.5">
+        <i class="fa-solid fa-rotate-left" aria-hidden="true"></i>
       </button>
     </div>
   </header>
@@ -4337,6 +4382,343 @@ body {
   filter: none !important;
 }
 </style>
+
+
+<style id="cids-balanced-layout-and-welcome-fix">
+/* Remove the legacy fixed-header spacer that caused the large blank top area. */
+html,body{min-height:100%;overflow-x:hidden!important}
+body{padding:clamp(8px,1.2vw,18px)!important;padding-top:clamp(8px,1.2vw,18px)!important;gap:0!important}
+body>header{position:relative!important;inset:auto!important;left:auto!important;right:auto!important;top:auto!important;transform:none!important;margin:0 auto 12px!important;width:100%!important;max-width:1720px!important}
+#immersiveFlightDeck{margin-top:0!important}
+#cidsWelcome{position:fixed;inset:0;z-index:2147483647;display:grid;place-items:center;overflow:hidden;padding:clamp(12px,3vw,32px);background:radial-gradient(ellipse at 50% 12%,#164b69 0%,#0a2439 35%,#050e19 78%);color:#effaff;font-family:Inter,ui-sans-serif,system-ui,sans-serif}
+#cidsWelcome[hidden]{display:none!important}
+#cidsWelcome .welcome-grid{position:absolute;inset:0;opacity:.17;background-image:linear-gradient(#72d9f522 1px,transparent 1px),linear-gradient(90deg,#72d9f522 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(to bottom,#000,transparent 92%);pointer-events:none}
+#cidsWelcome:before,#cidsWelcome:after{content:"";position:absolute;width:min(80vw,900px);height:min(80vw,900px);border:1px solid #7eddf51c;border-radius:50%;pointer-events:none}
+#cidsWelcome:after{width:min(62vw,700px);height:min(62vw,700px);border-style:dashed;opacity:.65}
+#cidsWelcome .welcome-orbit{position:absolute;border:1px solid #70d8f522;border-radius:50%;transform:rotate(-22deg);pointer-events:none}
+#cidsWelcome .orbit-a{width:120vw;height:35vw;max-height:420px}
+#cidsWelcome .orbit-b{width:110vw;height:52vw;max-height:600px;transform:rotate(28deg)}
+#cidsWelcome .welcome-shell{position:relative;z-index:1;width:min(100%,880px);max-height:calc(100dvh - 24px);overflow:auto;padding:clamp(20px,4vw,42px);border:1px solid #6cb4d366;border-radius:26px;background:linear-gradient(145deg,#102f47f5,#071827f7 68%,#0b263aF5);box-shadow:0 30px 90px #000b,inset 0 1px #e3faff30,inset 0 -2px #0008;text-align:center;backdrop-filter:blur(18px)}
+#cidsWelcome .welcome-topline{display:flex;align-items:center;justify-content:center;gap:9px;color:#8bd9ef;font:10px/1.5 ui-monospace,monospace;letter-spacing:2px}
+#cidsWelcome .live-dot{width:7px;height:7px;border-radius:50%;background:#53e6ba;box-shadow:0 0 12px #53e6ba;animation:cidsPulse 1.6s infinite}
+#cidsWelcome .welcome-brand{margin-top:12px;font-size:clamp(36px,7vw,68px);font-weight:900;letter-spacing:5px;line-height:1;text-shadow:0 8px 35px #4ac8ed55}
+#cidsWelcome .welcome-brand span{color:#6edbf4;font-weight:400}
+#cidsWelcome .welcome-kicker{margin:10px 0 0;color:#8baec2;font:10px ui-monospace,monospace;letter-spacing:2px}
+#cidsWelcome .welcome-aircraft{position:relative;width:min(100%,690px);margin:5px auto 0}
+#cidsWelcome .welcome-aircraft svg{position:relative;z-index:1;display:block;width:100%;height:auto;max-height:235px;overflow:visible;filter:drop-shadow(0 17px 13px #0009);animation:cidsFloat 5s ease-in-out infinite}
+#cidsWelcome .aircraft-glow{position:absolute;left:17%;right:17%;top:45%;height:22%;border-radius:50%;background:#35c6ef33;filter:blur(30px)}
+#cidsWelcome .aircraft-caption{position:relative;z-index:2;margin-top:-3px;color:#9dc8dc;font:9px ui-monospace,monospace;letter-spacing:2px}
+#cidsWelcome .aircraft-caption i{display:inline-block;width:4px;height:4px;margin:0 8px 2px;border-radius:50%;background:#63d9f2}
+#cidsWelcome .welcome-rule{width:74px;height:2px;margin:22px auto;background:linear-gradient(90deg,transparent,#62d7f1,transparent)}
+#cidsWelcome h1{margin:0;color:#f0fbff;font-size:clamp(18px,3vw,25px);font-weight:850;letter-spacing:1px}
+#cidsWelcome .welcome-description{max-width:620px;margin:10px auto 0;color:#a8c3d2;font-size:13px;line-height:1.75}
+#cidsWelcome .welcome-features{display:flex;justify-content:center;gap:clamp(12px,4vw,42px);margin:22px 0 24px}
+#cidsWelcome .welcome-features div{display:flex;align-items:center;gap:8px;color:#b7d0df;font-size:11px}
+#cidsWelcome .welcome-features b{color:#65d6f1;font:11px ui-monospace,monospace}
+#cidsWelcome #cidsStartButton{display:flex;align-items:center;justify-content:center;gap:12px;width:min(100%,390px);min-height:58px;margin:0 auto;padding:10px 18px;border:1px solid #a2efff;border-radius:13px;background:linear-gradient(180deg,#25a9d1,#08628d 58%,#06405f);box-shadow:0 5px 0 #032b42,0 13px 28px #0007,0 0 28px #30c9ef38,inset 0 1px #fff9;color:white;font-size:13px;font-weight:850;letter-spacing:1px;cursor:pointer;transition:transform .18s,filter .18s}
+#cidsWelcome #cidsStartButton:hover{filter:brightness(1.14);transform:translateY(-2px)}
+#cidsWelcome #cidsStartButton:active{transform:translateY(2px)}
+#cidsWelcome #cidsStartButton>span{font-size:17px}
+#cidsWelcome #cidsStartButton small{padding-left:10px;border-left:1px solid #ffffff55;color:#c6f4ff;font:8px ui-monospace,monospace;letter-spacing:1px}
+#cidsWelcome .welcome-foot{display:flex;justify-content:space-between;gap:10px;margin-top:26px;color:#648ba2;font:8px ui-monospace,monospace;letter-spacing:1.3px}
+@keyframes cidsFloat{0%,100%{transform:translateY(0) rotate(-.4deg)}50%{transform:translateY(-8px) rotate(.4deg)}}
+@keyframes cidsPulse{50%{opacity:.35;box-shadow:0 0 3px #53e6ba}}
+@media(max-width:600px){
+ #cidsWelcome .welcome-shell{padding:20px 16px;border-radius:19px}
+ #cidsWelcome .welcome-topline{font-size:8px;letter-spacing:1.1px}
+ #cidsWelcome .welcome-brand{font-size:42px}
+ #cidsWelcome .welcome-aircraft svg{max-height:155px}
+ #cidsWelcome .welcome-description{font-size:11px;line-height:1.6}
+ #cidsWelcome .welcome-features{gap:10px;margin:17px 0 20px}
+ #cidsWelcome .welcome-features div{flex-direction:column;gap:4px;font-size:9px}
+ #cidsWelcome #cidsStartButton{min-height:54px;font-size:11px;gap:8px}
+ #cidsWelcome #cidsStartButton small{font-size:7px;padding-left:7px}
+ #cidsWelcome .welcome-foot{font-size:7px;letter-spacing:.6px;margin-top:20px}
+}
+@media(max-height:700px) and (min-width:601px){
+ #cidsWelcome .welcome-shell{padding:18px 30px}
+ #cidsWelcome .welcome-aircraft svg{max-height:145px}
+ #cidsWelcome .welcome-rule{margin:12px auto}
+ #cidsWelcome .welcome-features{margin:12px 0 15px}
+ #cidsWelcome .welcome-foot{margin-top:15px}
+}
+@media(prefers-reduced-motion:reduce){#cidsWelcome *,#cidsWelcome *:before,#cidsWelcome *:after{animation:none!important;transition:none!important}}
+</style>
+<script id="cids-welcome-controller">
+(function(){
+  function initWelcome(){
+    var screen=document.getElementById('cidsWelcome');
+    var start=document.getElementById('cidsStartButton');
+    if(!screen||!start)return;
+    function enterSimulator(){
+      screen.hidden=true;
+      document.body.classList.add('cids-simulator-entered');
+      document.body.classList.remove('cids-welcome-open');
+      document.body.style.overflow='';
+      window.scrollTo({top:0,behavior:'instant'});
+      var main=document.querySelector('main');
+      if(main) main.setAttribute('tabindex','-1');
+    }
+    start.addEventListener('click',enterSimulator);
+    document.addEventListener('keydown',function(e){
+      if(e.key==='Enter'&&!screen.hidden){e.preventDefault();enterSimulator();}
+    });
+    document.body.classList.add('cids-welcome-open');
+    document.body.style.overflow='hidden';
+    start.focus({preventScroll:true});
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initWelcome,{once:true});
+  else initWelcome();
+})();
+</script>
+
+<style id="cids-ordered-panels-v1">
+  /* Centered vertical learning flow: FAP → ACP/AIP → Interphone → Cabin → Emergencies */
+  #cidsOrderedWorkspace{width:min(100%,1120px);margin:0 auto;display:flex;flex-direction:column;align-items:stretch;gap:16px;padding:4px 12px 36px}
+  #cidsOrderedWorkspace .cids-order-section{width:100%;min-width:0;display:flex;flex-direction:column;align-items:stretch;gap:8px}
+  #cidsOrderedWorkspace .cids-order-heading{display:flex;align-items:center;gap:10px;padding:0 4px;color:#bfeeff;font:800 12px/1.3 system-ui,sans-serif;letter-spacing:1.1px;text-transform:uppercase}
+  #cidsOrderedWorkspace .cids-order-heading:after{content:"";height:1px;flex:1;background:linear-gradient(90deg,#2d7897aa,transparent)}
+  #cidsOrderedWorkspace .cids-order-heading .cids-order-num{display:grid;place-items:center;width:25px;height:25px;border-radius:8px;background:linear-gradient(145deg,#1d789e,#0b3049);border:1px solid #5bc7e8;color:#e8fbff;box-shadow:0 4px 12px #0005}
+  #cidsOrderedWorkspace .cids-order-section>.bg-slate-900{width:100%;box-sizing:border-box}
+  #cidsOrderedWorkspace #handsetPanelWrapper{width:100%;box-sizing:border-box;align-items:stretch!important}
+  #cidsOrderedWorkspace #cabinWorkspace{width:100%;min-width:0}
+  #cidsOrderedWorkspace #cabinWorkspace>div{width:100%;box-sizing:border-box}
+  #cidsOrderedWorkspace #cidsAcpAipPanel{width:100%;display:flex;justify-content:center;align-items:center;min-height:76px;padding:14px!important;box-sizing:border-box;background:linear-gradient(135deg,#0a1b2b,#102c43 55%,#071521)!important;border:1px solid #285875!important;border-radius:16px!important;box-shadow:0 12px 28px #0005,inset 0 1px #ffffff12!important}
+  #cidsOrderedWorkspace #cidsAcpAipPanel #acpClusterContainer{padding:8px 12px!important}
+  #cidsOrderedWorkspace #cidsAcpAipPanel #topAipLine1{font-size:13px!important}
+  @media(max-width:640px){#cidsOrderedWorkspace{gap:13px;padding:2px 8px 28px}#cidsOrderedWorkspace .cids-order-heading{font-size:10px;letter-spacing:.7px}#cidsOrderedWorkspace #cidsAcpAipPanel{padding:10px!important}}
+</style>
+<script id="cids-reorder-workspace-v1">
+(function(){
+ function arrange(){
+  var main=document.querySelector('main');
+  if(!main||document.getElementById('cidsOrderedWorkspace'))return;
+  var columns=Array.from(main.children);
+  if(columns.length<2)return;
+  var left=columns[0], right=columns[1];
+  var emergency=left.children[0], fap=left.children[1], handset=document.getElementById('handsetPanelWrapper');
+  var cabin=right;
+  var acp=document.getElementById('acpClusterContainer');
+  var acpPanel=acp&&acp.parentElement;
+  if(!emergency||!fap||!handset||!cabin||!acpPanel)return;
+  var workspace=document.createElement('div');workspace.id='cidsOrderedWorkspace';
+  function section(number,title,node,id){
+   var section=document.createElement('section');section.className='cids-order-section';if(id)section.id=id;
+   var heading=document.createElement('div');heading.className='cids-order-heading';
+   var num=document.createElement('span');num.className='cids-order-num';num.textContent=number;
+   var label=document.createElement('span');label.textContent=title;
+   heading.append(num,label);section.append(heading,node);return section;
+  }
+  var cabinWrap=document.createElement('div');cabinWrap.id='cabinWorkspace';cabinWrap.append(cabin);
+  main.replaceChildren(workspace);
+  workspace.append(
+   section('01','Flight Attendant Panel · FAP',fap),
+   section('02','Audio Control Panel · ACP / AIP',acpPanel,'cidsAcpAipSection'),
+   section('03','Cabin Interphone',handset),
+   section('04','Sơ đồ khoang khách',cabinWrap),
+   section('05','Các tình huống khẩn cấp',emergency)
+  );
+  acpPanel.id='cidsAcpAipPanel';
+  acpPanel.classList.remove('gap-2');
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',arrange,{once:true});else arrange();
+})();
+</script>
+
+
+<style id="cids-floating-reset-button-v1">
+/* Quick reset: compact circular control pinned to the viewport's upper-right corner. */
+#btnCidsQuickReset{
+  position:fixed!important;
+  top:max(12px,env(safe-area-inset-top))!important;
+  right:max(12px,env(safe-area-inset-right))!important;
+  z-index:2147483000!important;
+  display:grid!important;
+  place-items:center!important;
+  width:46px!important;
+  height:46px!important;
+  min-width:46px!important;
+  min-height:46px!important;
+  padding:0!important;
+  border:1px solid #fca5a5!important;
+  border-radius:50%!important;
+  background:linear-gradient(145deg,#fb5353,#b91c1c 72%,#7f1d1d)!important;
+  color:#fff!important;
+  box-shadow:0 5px 16px #0008,0 0 0 3px #ef444426,inset 0 1px #ffffff55!important;
+  font-size:17px!important;
+  line-height:1!important;
+  cursor:pointer!important;
+  transition:transform .18s ease,filter .18s ease,box-shadow .18s ease!important;
+}
+#btnCidsQuickReset:hover{
+  filter:brightness(1.14)!important;
+  transform:translateY(-1px) rotate(-12deg)!important;
+  box-shadow:0 7px 20px #0009,0 0 0 4px #ef444440,inset 0 1px #ffffff66!important;
+}
+#btnCidsQuickReset:active{transform:scale(.94)!important}
+#btnCidsQuickReset:focus-visible{outline:3px solid #7dd3fc!important;outline-offset:3px!important}
+#btnCidsQuickReset i{margin:0!important}
+@media(max-width:600px){
+  #btnCidsQuickReset{top:max(9px,env(safe-area-inset-top))!important;right:max(9px,env(safe-area-inset-right))!important;width:42px!important;height:42px!important;min-width:42px!important;min-height:42px!important;font-size:15px!important}
+}
+@media(prefers-reduced-motion:reduce){#btnCidsQuickReset{transition:none!important}}
+</style>
+
+
+<style id="cids-reset-mobile-viewport-fix">
+/* Keep the quick-reset control attached to the viewport, not to a scrolling/transformed panel. */
+html body #btnCidsQuickReset{
+  position:fixed!important;
+  inset-block-start:calc(env(safe-area-inset-top, 0px) + 12px)!important;
+  inset-inline-end:calc(env(safe-area-inset-right, 0px) + 12px)!important;
+  inset-block-end:auto!important;
+  inset-inline-start:auto!important;
+  z-index:2147483647!important;
+  width:46px!important;height:46px!important;
+  min-width:46px!important;min-height:46px!important;
+  max-width:46px!important;max-height:46px!important;
+  box-sizing:border-box!important;
+  display:flex!important;align-items:center!important;justify-content:center!important;
+  margin:0!important;padding:0!important;
+  border-radius:50%!important;
+  border:1px solid rgba(255,255,255,.72)!important;
+  background:linear-gradient(145deg,#ff6262 0%,#dc2626 58%,#991b1b 100%)!important;
+  color:#fff!important;
+  box-shadow:0 5px 18px rgba(0,0,0,.38),0 0 0 3px rgba(239,68,68,.18),inset 0 1px 1px rgba(255,255,255,.45)!important;
+  font-size:17px!important;line-height:1!important;
+  cursor:pointer!important;touch-action:manipulation!important;
+  -webkit-tap-highlight-color:transparent!important;
+  transform:none!important;
+}
+html body #btnCidsQuickReset i{margin:0!important;padding:0!important}
+html body #btnCidsQuickReset:active{filter:brightness(.92)!important;transform:scale(.94)!important}
+html body #btnCidsQuickReset:focus-visible{outline:3px solid #7dd3fc!important;outline-offset:3px!important}
+@media(max-width:600px){
+  html body #btnCidsQuickReset{
+    inset-block-start:calc(env(safe-area-inset-top, 0px) + 10px)!important;
+    inset-inline-end:calc(env(safe-area-inset-right, 0px) + 10px)!important;
+    width:44px!important;height:44px!important;
+    min-width:44px!important;min-height:44px!important;
+    max-width:44px!important;max-height:44px!important;
+    font-size:16px!important;
+  }
+}
+@media(prefers-reduced-motion:reduce){html body #btnCidsQuickReset{transition:none!important}}
+</style>
+<script id="cids-reset-mobile-viewport-fix-js">
+(function(){
+  function pinResetToViewport(){
+    var reset = document.getElementById('btnCidsQuickReset');
+    if(!reset || !document.body) return;
+    /* A fixed element inside transformed/overflow containers can scroll or get clipped.
+       Moving it to body makes its fixed coordinates relative to the viewport. */
+    if(reset.parentElement !== document.body) document.body.appendChild(reset);
+    reset.style.setProperty('position','fixed','important');
+    reset.style.setProperty('top','calc(env(safe-area-inset-top, 0px) + 10px)','important');
+    reset.style.setProperty('right','calc(env(safe-area-inset-right, 0px) + 10px)','important');
+    reset.style.setProperty('bottom','auto','important');
+    reset.style.setProperty('left','auto','important');
+    reset.style.setProperty('z-index','2147483647','important');
+  }
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded',pinResetToViewport,{once:true});
+  }else{
+    pinResetToViewport();
+  }
+  window.addEventListener('pageshow',pinResetToViewport);
+})();
+</script>
+
+
+<style id="cids-acp-aip-reset-dock-style">
+  /* ACP + AIP + Reset share one compact floating status tab; hidden on welcome page. */
+  #cidsAcpAipResetDock{display:none!important}
+  body.cids-simulator-entered #cidsAcpAipResetDock{
+    display:flex!important;align-items:center;justify-content:center;gap:10px;
+    position:fixed!important;top:calc(env(safe-area-inset-top,0px) + 10px)!important;
+    right:calc(env(safe-area-inset-right,0px) + 10px)!important;
+    z-index:2147483000!important;width:max-content;max-width:calc(100vw - 20px);
+    padding:7px 9px;border:1px solid #47718b;border-radius:16px;
+    background:linear-gradient(145deg,rgba(15,42,62,.97),rgba(4,17,29,.98));
+    box-shadow:0 9px 26px #0009,0 0 0 1px #9be7ff14,inset 0 1px #ffffff22;
+    backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  }
+  #cidsAcpAipResetDock #cidsAcpAipStatusGroup{
+    display:flex!important;align-items:center;gap:9px;min-width:0;
+  }
+  #cidsAcpAipResetDock #acpClusterContainer{
+    display:flex!important;align-items:center;gap:5px!important;
+    padding:5px 7px!important;margin:0!important;border-radius:9px!important;
+  }
+  #cidsAcpAipResetDock #acpClusterContainer:before{content:"ACP";font:800 9px monospace;color:#a8c9dc;letter-spacing:.8px;margin-right:2px}
+  #cidsAcpAipResetDock #acpLabelPrefix{display:none!important}
+  #cidsAcpAipResetDock #topAcpAmber,#cidsAcpAipResetDock #topAcpMid1,
+  #cidsAcpAipResetDock #topAcpMid2,#cidsAcpAipResetDock #topAcpBlue{
+    width:17px!important;height:13px!important;flex:0 0 auto;
+  }
+  #cidsAcpAipResetDock #cidsAipStatusGroup{
+    display:flex!important;align-items:center;gap:6px;max-width:155px;
+    padding:4px 7px;border:1px solid #29475c;border-radius:9px;background:#061522;
+  }
+  #cidsAcpAipResetDock #topAipLine1{font-size:9px!important}
+  #cidsAcpAipResetDock #topAipLine2{font-size:8px!important}
+  #cidsAcpAipResetDock #btnCidsQuickReset{
+    position:static!important;inset:auto!important;z-index:auto!important;
+    width:38px!important;height:38px!important;min-width:38px!important;min-height:38px!important;
+    max-width:38px!important;max-height:38px!important;border-radius:50%!important;
+    display:grid!important;place-items:center!important;margin:0!important;padding:0!important;
+    border:1px solid #fca5a5!important;background:linear-gradient(145deg,#fb5353,#b91c1c 72%,#7f1d1d)!important;
+    color:white!important;font-size:15px!important;box-shadow:0 4px 12px #0008,inset 0 1px #ffffff55!important;
+  }
+  #cidsAcpAipResetDock #btnCidsQuickReset i{margin:0!important}
+  @media(max-width:600px){
+    body.cids-simulator-entered #cidsAcpAipResetDock{
+      top:calc(env(safe-area-inset-top,0px) + 7px)!important;
+      right:calc(env(safe-area-inset-right,0px) + 7px)!important;
+      gap:6px;padding:5px 6px;border-radius:13px;
+    }
+    #cidsAcpAipResetDock #cidsAcpAipStatusGroup{gap:5px}
+    #cidsAcpAipResetDock #acpClusterContainer{gap:3px!important;padding:4px 5px!important}
+    #cidsAcpAipResetDock #cidsAipStatusGroup{gap:4px;padding:4px 5px;max-width:116px}
+    #cidsAcpAipResetDock #topAcpAmber,#cidsAcpAipResetDock #topAcpMid1,
+    #cidsAcpAipResetDock #topAcpMid2,#cidsAcpAipResetDock #topAcpBlue{width:13px!important;height:11px!important}
+    #cidsAcpAipResetDock #topAipLine1{font-size:8px!important}
+    #cidsAcpAipResetDock #topAipLine2{font-size:7px!important}
+    #cidsAcpAipResetDock #btnCidsQuickReset{width:34px!important;height:34px!important;min-width:34px!important;min-height:34px!important;max-width:34px!important;max-height:34px!important;font-size:13px!important}
+  }
+  @media(max-width:360px){
+    #cidsAcpAipResetDock #cidsAipStatusGroup{max-width:92px}
+    #cidsAcpAipResetDock #topAipLine2{display:none}
+  }
+</style>
+<script id="cids-acp-aip-reset-dock-controller">
+(function(){
+  function mountStatusDock(){
+    if(!document.body || document.getElementById('cidsAcpAipResetDock')) return;
+    var header=document.querySelector('body>header');
+    var statusGroup=header && header.children[1];
+    var acp=statusGroup && statusGroup.querySelector('#acpClusterContainer');
+    var aip=statusGroup && statusGroup.querySelector('#topAipLine1');
+    var reset=document.getElementById('btnCidsQuickReset');
+    if(!acp || !aip || !reset) return;
+    var dock=document.createElement('aside');
+    dock.id='cidsAcpAipResetDock';
+    dock.setAttribute('aria-label','ACP, AIP và Reset CIDS');
+    var group=document.createElement('div');
+    group.id='cidsAcpAipStatusGroup';
+    var aipGroup=aip.parentElement.parentElement;
+    group.appendChild(acp);
+    group.appendChild(aipGroup);
+    dock.appendChild(group);
+    dock.appendChild(reset);
+    document.body.appendChild(dock);
+    document.body.classList.toggle('cids-simulator-entered',!!document.getElementById('cidsWelcome')?.hidden);
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',mountStatusDock,{once:true});
+  else mountStatusDock();
+  window.addEventListener('pageshow',mountStatusDock);
+})();
+</script>
 
 </body>
 </html>
